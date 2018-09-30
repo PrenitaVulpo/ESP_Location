@@ -1,14 +1,13 @@
 //includes  
 #include <ESP8266WiFi.h>
 #include "WiFiC.h"
-#include <ESP8266WiFi.h>
 
 //General Setup Variables
 int wRSSI = 0;
 const char* s2; 
   //WiFi
     //Access
-    const char* SSID = "OBERDAN-WIFI";
+    const char* SSIDl = "OBERDAN-WIFI";
     const char* senha = "Jol1965jol";
 //Temporário
 WiFiC rede1;
@@ -31,6 +30,13 @@ WiFiC rede3;
     WiFi.disconnect();
     delay(100);
     Serial.println("Station mode Activated");
+    //Local network connction
+    WiFi.begin(SSIDl,senha);
+    while (WiFi.status() != WL_CONNECTED){
+      delay(1000);
+      Serial.println("Não conectado a nenhuma rede");
+    } 
+    Serial.println("Conectado");
     //void Setup end
   };
   void loop(){
