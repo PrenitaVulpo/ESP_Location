@@ -4,10 +4,15 @@
 class WiFiC{
   public:
     WiFiC();
-    void setMAC(const char* mac);
-    const char* getMAC();
+    String wifiMAC;
+    int wifiRSSI = 0;
+    /*void setMAC(String mac);
+    String getMAC();
     void setRSSI(int wifiRSSI);
     int getRSSI();
+  private:*/
+    
 };
 
 #endif
+

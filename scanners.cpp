@@ -107,3 +107,4 @@ void scanSet(WiFiC *redes[3]){
           Serial.println(wifiMAC3);
           Serial.println("RSSI da rede Nº3: "+wifiRSSI3);
           */
+

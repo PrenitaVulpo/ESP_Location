@@ -1,18 +1,19 @@
-//includes  
+  //includes  
 #include <ESP8266WiFi.h>
 #include "WiFiC.h"
 
-//General Setup Variables
-int wRSSI = 0;
-const char* s2; 
+/*//General Setup Variables
+int wRSSI,wRSSI2 = 0;
+String s2,s3, s4;*/ 
   //WiFi
     //Access
     const char* SSIDl = "OBERDAN-WIFI";
     const char* senha = "Jol1965jol";
-//Temporário
+    //const char* senha = "";
+/*//Temporário
 WiFiC rede1;
 WiFiC rede2;
-WiFiC rede3;
+WiFiC rede3;*/
 /*  //Json
   const size_t bufferSize = JSON_ARRAY_SIZE(3) + 4*JSON_OBJECT_SIZE(2);
   DynamicJsonBuffer jsonBuffer(bufferSize);
@@ -24,6 +25,13 @@ WiFiC rede3;
 */
 //Code
   void setup(){
+    //ṭemporário
+    WiFiC rede1;
+WiFiC rede2;
+WiFiC rede3;
+//General Setup Variables
+int wRSSI,wRSSI2 = 0;
+String s2,s3, s4; 
     Serial.begin(115200);
     //Set WiFi to station mode
     WiFi.mode(WIFI_STA);
@@ -40,6 +48,13 @@ WiFiC rede3;
     //void Setup end
   };
   void loop(){
+    //Temporário
+WiFiC rede1;
+WiFiC rede2;
+WiFiC rede3;
+//General Setup Variables
+int wRSSI,wRSSI2 = 0;
+String s2,s3, s4; 
         //Json Serialization and printing
           //Printing
           int n = WiFi.scanNetworks();
@@ -61,8 +76,10 @@ WiFiC rede3;
             rede2.setRSSI(wRSSI);
             //MAC
             s2 = rede1.getMAC();
-            rede1.setMAC(WiFi.macAddress().c_str());
-            rede3.setMAC(rede2.getMAC());
+            s3 = WiFi.BSSIDstr();
+            s4 = rede2.getMAC();
+            rede1.setMAC(s3);
+            rede3.setMAC(s4);
             rede2.setMAC(s2);
             }else if(rede2.getRSSI()<WiFi.RSSI(i)){
               wRSSI = rede2.getRSSI();
@@ -70,17 +87,19 @@ WiFiC rede3;
               rede3.setRSSI(wRSSI);
               //MAC
               s2 = rede2.getMAC();
-              rede2.setMAC(WiFi.macAddress().c_str());
+              s3 = WiFi.BSSIDstr();
+              rede2.setMAC(s3);
               rede3.setMAC(s2);
             }else if(rede3.getRSSI()<WiFi.RSSI(i)){
               rede3.setRSSI(WiFi.RSSI(i));
               //MAC
-              rede3.setMAC(WiFi.macAddress().c_str());
+              s3 = WiFi.BSSIDstr();
+              rede3.setMAC(s3);
             }
           }
           Serial.print("Endereço MAC da rede Nº1: ");
           Serial.println(rede1.getMAC());
-          Serial.println("RSSI da rede Nº1: "+rede1.getRSSI());
+          Serial.println("RSSI da rede Nº1: "+String(rede1.getRSSI()));
           Serial.print("Endereço MAC da rede Nº2: ");
           Serial.println(rede2.getMAC());
           Serial.println("RSSI da rede Nº2: "+rede2.getRSSI());
@@ -125,3 +144,4 @@ WiFiC rede3;
   
   };
    
+
