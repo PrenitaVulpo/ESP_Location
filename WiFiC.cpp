@@ -2,11 +2,11 @@
 #include "WiFiC.h"
 
 String wifiMAC;
-//String *pwifiMAC = &wifiMAC;
-int wifiRSSI = 0; 
-//int *pwifiRSSI = &wifiRSSI;
+String *pwifiMAC = &wifiMAC;
+int wifiRSSI = -100; 
+int *pwifiRSSI = &wifiRSSI;
 
-/*WiFiC::WiFiC(){
+WiFiC::WiFiC(){
   Serial.println("criado");
 }
 
@@ -25,5 +25,5 @@ void WiFiC::setRSSI(int wifiRSSI){
 
 int WiFiC::getRSSI(){
   return wifiRSSI;
-}*/
+}
 
