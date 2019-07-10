@@ -12,7 +12,7 @@ const char* senha = "Jol1965jol";
 //Google GeoLocation API.
 const char* Host = "www.googleapis.com";
 String thisPage = "/geolocation/v1/geolocate?key=";
-String key = "AIzaSyB09qqXAyYm-_98qbOyPNOGOvFBftRPqgE";
+String key = "MyKey";
 
 // Credential for Dweetio API
 const char* HostDweetURL = "www.dweet.io";
